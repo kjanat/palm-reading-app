@@ -1,8 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+@import "tailwindcss";
 
 * {
   box-sizing: border-box;
@@ -14,7 +10,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: 'Crimson Text', serif;
+font-family: var(--font-crimson-text), serif;
 }
 
 body {
@@ -51,12 +47,15 @@ a {
 }
 
 .crystal-card {
-  @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl shadow-2xl;
   background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
 .mystical-text {
-  font-family: 'Cinzel', serif;
+font-family: var(--font-cinzel), serif;
   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -64,23 +63,44 @@ a {
 }
 
 .palm-reading-card {
-  @apply crystal-card p-6 m-4 transform transition-all duration-300 hover:scale-105;
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin: 1rem;
+    transform: scale(1);
+    transition: all 0.3s ease;
   box-shadow: 0 20px 40px rgba(0,0,0,0.1), 0 0 20px rgba(139, 69, 19, 0.3);
 }
 
+.palm-reading-card:hover {
+    transform: scale(1.05);
+}
 .spiritual-button {
-  @apply px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105;
+padding: 1.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    color: white;
+    transition: all 0.3s ease;
+    transform: scale(1);
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 .spiritual-button:hover {
+transform: scale(1.05);
   background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
   box-shadow: 0 15px 30px rgba(0,0,0,0.3);
 }
 
 .premium-badge {
-  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
   background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
   color: #8b4513;
   animation: glow 2s ease-in-out infinite alternate;
@@ -96,3 +116,4 @@ a {
     radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 75% 75%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
 }
+

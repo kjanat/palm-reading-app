@@ -1,12 +1,12 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuth } from '../../contexts/AuthContext';
 import AuthForm from '../../components/AuthForm';
 import { Eye, Star, Moon } from 'lucide-react';
 
-const AuthPage: React.FC = () => {
+const AuthContent: React.FC = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
     const { user, loading } = useAuth();
@@ -148,6 +148,23 @@ const AuthPage: React.FC = () => {
                 </div>
             </div>
         </div>
+    );
+};
+
+const LoadingFallback: React.FC = () => (
+    <div className="min-h-screen mystical-bg flex items-center justify-center">
+        <div className="text-center">
+            <Eye className="h-12 w-12 mx-auto mb-4 text-mystical-gold animate-pulse" />
+            <p className="text-white font-spiritual">Connecting to the mystical realm...</p>
+        </div>
+    </div>
+);
+
+const AuthPage: React.FC = () => {
+    return (
+        <Suspense fallback={<LoadingFallback />}>
+            <AuthContent />
+        </Suspense>
     );
 };
 
