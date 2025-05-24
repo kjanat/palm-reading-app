@@ -1,9 +1,13 @@
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
+  swcMinify: true,
   images: {
-    domains: ['your-image-domain.com'], // Replace with your image hosting domain
+    domains: ['your-image-domain.com', 'firebasestorage.googleapis.com'],
   },
   env: {
-    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL, // API URL for backend services
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
   },
 };
+
+module.exports = nextConfig;

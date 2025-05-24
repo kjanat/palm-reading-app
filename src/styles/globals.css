@@ -1,62 +1,98 @@
-body {
-    background-color: #f0e6d6;
-    font-family: 'Cursive', sans-serif;
-    color: #4b3d2e;
-    line-height: 1.6;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-h1, h2, h3 {
-    color: #7a5c3e;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: 'Crimson Text', serif;
+}
+
+body {
+  color: #ffffff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 a {
-    color: #7a5c3e;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
+/* Custom spiritual styling */
+.mystical-bg {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow: hidden;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.mystical-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+  animation: starfield 20s linear infinite;
 }
 
-.button {
-    background-color: #7a5c3e;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+@keyframes starfield {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-60px); }
 }
 
-.button:hover {
-    background-color: #6b4e32;
+.crystal-card {
+  @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl shadow-2xl;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
 }
 
-.input {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    width: 100%;
-    margin-bottom: 15px;
+.mystical-text {
+  font-family: 'Cinzel', serif;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.input:focus {
-    border-color: #7a5c3e;
-    outline: none;
+.palm-reading-card {
+  @apply crystal-card p-6 m-4 transform transition-all duration-300 hover:scale-105;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1), 0 0 20px rgba(139, 69, 19, 0.3);
 }
 
-.footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 0.9em;
-    color: #7a5c3e;
+.spiritual-button {
+  @apply px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.spiritual-button:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.premium-badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #8b4513;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+  to { box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+}
+
+.tarot-pattern {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
 }

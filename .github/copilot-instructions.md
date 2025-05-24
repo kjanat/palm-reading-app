@@ -1,0 +1,3 @@
+Use:
+- pnpm
+- StandardJS
