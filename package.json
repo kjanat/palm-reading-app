@@ -1,0 +1,31 @@
+{
+  "name": "palm-reading-app",
+  "version": "1.0.0",
+  "description": "A spiritual palm reading application with user authentication and image upload features.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [
+    "palm reading",
+    "spiritual",
+    "nextjs",
+    "authentication",
+    "image upload"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "firebase": "^11.8.1",
+    "next": "^15.1.8",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.7"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3"
+  }
+}
